@@ -19,9 +19,9 @@ app = Flask(__name__, static_folder="static")
 def index():
     return app.send_static_file("index.html")
 
-@app.route("/favicon.ico")
-def favicon():
-    return app.send_static_file('favicon.ico')
+@app.route("/TNTData.ico")
+def TNTData():
+    return app.send_static_file('TNTData.ico')
 
 @app.route("/assets/<path:path>")
 def assets(path):
