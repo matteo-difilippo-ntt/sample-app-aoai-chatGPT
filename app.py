@@ -63,6 +63,7 @@ AZURE_OPENAI_EMBEDDING_KEY = os.environ.get("AZURE_OPENAI_EMBEDDING_KEY")
 
 
 SHOULD_STREAM = True if AZURE_OPENAI_STREAM.lower() == "true" else False
+USE_DATA = os.environ.get("USE_DATA", 'True')
 
 # CosmosDB Integration Settings
 AZURE_COSMOSDB_DATABASE = os.environ.get("AZURE_COSMOSDB_DATABASE")
@@ -98,6 +99,8 @@ def is_chat_model():
     return False
 
 def should_use_data():
+    if USE_DATA.lower() == 'false':
+        return False
     if AZURE_SEARCH_SERVICE and AZURE_SEARCH_INDEX and AZURE_SEARCH_KEY:
         return True
     return False
