@@ -8,6 +8,8 @@ export type Citation = {
     content: string;
     id: string;
     title: string | null;
+    metadata_storage_path: string | null;
+    metadata_storage_name: string | null;
     filepath: string | null;
     url: string | null;
     metadata: string | null;
