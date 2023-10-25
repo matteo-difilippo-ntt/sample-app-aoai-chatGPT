@@ -675,13 +675,13 @@ const Chat = () => {
                         <Stack aria-label="Citations Panel Header Container" horizontal className={styles.citationPanelHeaderContainer} horizontalAlign="space-between" verticalAlign="center">
                             <span aria-label="Citations" className={styles.citationPanelHeader}>Citations</span>
                             <span 
-                                title={activeCitation.metadata_storage_path ? activeCitation.metadata_storage_path : ""} 
+                                title={activeCitation.url ? activeCitation.url : ""} 
                                 tabIndex={0} 
                                 role="link" 
                                 onClick={() => onViewSource(activeCitation)} 
                                 onKeyDown={e => e.key === "Enter" || e.key === " " ? onViewSource(activeCitation) : null}
                                 className={styles.viewSourceButton}
-                                // aria-label={activeCitation.metadata_storage_path}
+                                // aria-label={activeCitation.url}
                             >
                                 View Source
                             </span>
@@ -690,7 +690,7 @@ const Chat = () => {
                         <h5 
                             className={styles.citationPanelTitle}
                             tabIndex={0} 
-                            title={activeCitation.metadata_storage_path && !activeCitation.metadata_storage_path.includes("blob.core") ? activeCitation.metadata_storage_path : activeCitation.title ?? ""} 
+                            title={activeCitation.url && !activeCitation.url.includes("blob.core") ? activeCitation.url : activeCitation.title ?? ""} 
                             onClick={() => onViewSource(activeCitation)}
                         >
                         {activeCitation.title}

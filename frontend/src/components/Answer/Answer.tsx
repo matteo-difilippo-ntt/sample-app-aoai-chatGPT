@@ -38,17 +38,17 @@ export const Answer = ({
     const createCitationFilepath = (citation: Citation, index: number, truncate: boolean = false) => {
         let citationFilename = "";
 
-        if (citation.metadata_storage_name && citation.chunk_id) {
-            if (truncate && citation.metadata_storage_name.length > filePathTruncationLimit) {
-                const citationLength = citation.metadata_storage_name.length;
-                citationFilename = `${citation.metadata_storage_name.substring(0, 20)}...${citation.metadata_storage_name.substring(citationLength -20)} - Part ${parseInt(citation.chunk_id) + 1}`;
+        if (citation.filepath && citation.chunk_id) {
+            if (truncate && citation.filepath.length > filePathTruncationLimit) {
+                const citationLength = citation.filepath.length;
+                citationFilename = `${citation.filepath.substring(0, 20)}...${citation.filepath.substring(citationLength -20)} - Part ${parseInt(citation.chunk_id) + 1}`;
             }
             else {
-                citationFilename = `${citation.metadata_storage_name} - Part ${parseInt(citation.chunk_id) + 1}`;
+                citationFilename = `${citation.filepath} - Part ${parseInt(citation.chunk_id) + 1}`;
             }
         }
-        else if (citation.metadata_storage_name && citation.reindex_id) {
-            citationFilename = `${citation.metadata_storage_name} - Part ${citation.reindex_id}`;
+        else if (citation.filepath && citation.reindex_id) {
+            citationFilename = `${citation.filepath} - Part ${citation.reindex_id}`;
         }
         else {
             citationFilename = `Citation ${index}`;

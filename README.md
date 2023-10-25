@@ -144,13 +144,13 @@ const onViewSource = (citation: Citation) => {
     };
 
 <span 
-        title={activeCitation.metadata_storage_path} 
+        title={activeCitation.url} 
         tabIndex={0} 
         role="link" 
         onClick={() => onViewSource(activeCitation)} 
         onKeyDown={e => e.key === "Enter" || e.key === " " ? onViewSource(activeCitation) : null}
         className={styles.viewSourceButton}
-        aria-label={activeCitation.metadata_storage_path}
+        aria-label={activeCitation.url}
     >
         View Source
 </span>
